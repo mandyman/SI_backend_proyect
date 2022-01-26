@@ -3,6 +3,7 @@ import java.io.Serializable;
 import java.util.Objects;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -30,7 +31,7 @@ public class Multa implements Serializable {
    
     //@JoinColumn(name="accidente_id")
     @JsonIgnore
-    @ManyToOne 
+    @ManyToOne(cascade = {CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.DETACH})
     private Accidente accidente;
 
     

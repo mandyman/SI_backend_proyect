@@ -1,13 +1,18 @@
 package es.uvigo.mei.accidentes.entidades;
 import java.io.Serializable;
 import java.util.Objects;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
 import es.uvigo.mei.accidentes.entidades.Persona;
 
 
@@ -21,7 +26,8 @@ public class Vehiculo implements Serializable {
     private String modelo;
     private String matricula;
     
-    @ManyToOne
+    @JoinColumn(name="persona_id")
+    @OneToOne(cascade = {CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.DETACH}, orphanRemoval = true)
     private Persona conductor;
     
     public Vehiculo() {

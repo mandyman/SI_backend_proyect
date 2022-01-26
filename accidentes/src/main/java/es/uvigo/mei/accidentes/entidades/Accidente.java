@@ -28,7 +28,7 @@ public class Accidente implements Serializable {
    
     private Localizacion localizacion;
     
-    @OneToMany(mappedBy = "accidente", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @OneToMany(mappedBy = "accidente", cascade = {CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.DETACH}, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Multa> multas;
     
     public Accidente() {
