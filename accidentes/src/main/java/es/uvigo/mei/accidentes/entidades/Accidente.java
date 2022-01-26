@@ -11,6 +11,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +33,7 @@ public class Accidente implements Serializable {
     private Localizacion localizacion;
     
     @OneToMany(mappedBy = "accidente", cascade = {CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.DETACH}, fetch = FetchType.LAZY, orphanRemoval = true)
+    //@JsonManagedReference
     private List<Multa> multas;
     
     public Accidente() {

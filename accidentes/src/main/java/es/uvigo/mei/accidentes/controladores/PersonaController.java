@@ -46,7 +46,10 @@ public class PersonaController {
 	public ResponseEntity<List<EntityModel<Persona>>> buscarTodos(
 			@RequestParam(name = "nombre", required = false) String nombre,
 			@RequestParam(name = "apellidos", required = false) String apellidos,
-			@RequestParam(name = "dni", required = false) String dni) {
+			@RequestParam(name = "dni", required = false) String dni,
+			@RequestParam(name = "provincia", required = false) String provincia,
+			@RequestParam(name = "codigoPostal", required = false) String codigoPostal
+			) {
 		try {
 			List<Persona> resultado = new ArrayList<>();
 
@@ -56,6 +59,10 @@ public class PersonaController {
 				resultado = personaService.buscarPorApellidos(apellidos);
 			} else if (dni != null) {
 				resultado = personaService.buscarPorDNI(dni);
+			} else if (provincia != null) {
+				resultado = personaService.buscarPorProvincia(provincia);
+			} else if (codigoPostal != null) {
+				resultado = personaService.buscarPorCodigoPostal(codigoPostal);
 			} 
 			else {
 				resultado = personaService.buscarTodos();

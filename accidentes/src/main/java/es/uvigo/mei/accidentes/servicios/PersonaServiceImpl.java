@@ -65,4 +65,16 @@ public class PersonaServiceImpl implements PersonaService {
 		return personaDAO.findByDNI(dni);
 	}
 
+	@Override
+	@Transactional(readOnly = true)
+	public List<Persona> buscarPorProvincia(String provincia){
+		return personaDAO.findByDireccionProvincia(provincia);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<Persona> buscarPorCodigoPostal(String codigoPostal){
+		return personaDAO.findByDireccionCodigoPostal(codigoPostal);
+	}
+
 }

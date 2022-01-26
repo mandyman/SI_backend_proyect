@@ -13,6 +13,8 @@ public interface PersonaService {
 	public List<Persona> buscarPorNombre(String nombre);
 	public List<Persona> buscarPorApellidos(String apellidos);
 	public List<Persona> buscarPorDNI(String dni);
+	public List<Persona> buscarPorProvincia(String provincia);
+	public List<Persona> buscarPorCodigoPostal(String codigoPostal);
 
 	/*public ArticuloAlmacen crearArticuloAlmacen(ArticuloAlmacen articuloAlmacen);
 	public ArticuloAlmacen crearArticuloAlmacen(Articulo articulo, Almacen almacen, Integer stock);

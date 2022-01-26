@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import es.uvigo.mei.accidentes.entidades.Persona;
 
 
@@ -27,7 +29,7 @@ public class Vehiculo implements Serializable {
     private String matricula;
     
     @JoinColumn(name="persona_id")
-    @OneToOne(cascade = {CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.DETACH}, orphanRemoval = true)
+    @OneToOne //(cascade = {CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.DETACH}, orphanRemoval = true)
     private Persona conductor;
     
     public Vehiculo() {

@@ -56,9 +56,13 @@ public class AccidentesApplication implements CommandLineRunner {
         Localizacion loc = new Localizacion("domicilio2","localidad2","codigopostal2","provincia2");
         Accidente ac1 = new Accidente(loc,"description2");                          
         Multa mu1 = new Multa("tipo2", "sancion2", ac1);
+        Multa mu2 = new Multa("tipo3", "sancion3", ac1);
 
         Persona p1 = new Persona("name2","apellidos2","59396847B", loc);
         Vehiculo v1 = new Vehiculo("moto2", "asdasd2", p1);
+
+        //ac1.anadirMulta(mu1);
+        //ac1.anadirMulta(mu2);
 
         /*AccidentePersonaVehiculo apv1 = new AccidentePersonaVehiculo(ac1, p1, v1);
 
@@ -67,6 +71,7 @@ public class AccidentesApplication implements CommandLineRunner {
 
         accidenteDAO.save(ac1);
         multaDAO.save(mu1);
+        multaDAO.save(mu2);
         personaDAO.save(p1);
         vehiculoDAO.save(v1);
         /*accidentePersonaVehiculoDAO.save(apv1);

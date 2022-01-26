@@ -122,7 +122,7 @@ public class MultaController {
 	}
 
 	
-	@Operation(summary = "Crear un nuevo Multa")
+	@Operation(summary = "Crear una nueva Multa")
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<EntityModel<Multa>> crear(@Valid @RequestBody Multa multa) {
 		try {

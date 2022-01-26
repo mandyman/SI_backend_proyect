@@ -13,7 +13,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,9 +33,14 @@ public class Multa implements Serializable {
     private String sancion;    
    
     //@JoinColumn(name="accidente_id")
-    @JsonIgnore
+    //@JsonIgnore
+
+    @JoinColumn(name="accidente_id")
     @ManyToOne(cascade = {CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.DETACH})
+    //@JsonBackReference
+    @JsonIgnoreProperties("multas")
     private Accidente accidente;
+    
 
     
     public Multa() {
@@ -69,7 +77,7 @@ public class Multa implements Serializable {
         this.sancion = sancion;
     }
     
-        public Accidente getAccidente() {
+    public Accidente getAccidente() {
         return accidente;
     }
 
@@ -111,6 +119,6 @@ public class Multa implements Serializable {
 
     @Override
     public String toString() {
-        return "Persona{" + "id=" + id + ", tipo=" + tipo + ", sancion=" + sancion + '}';
+        return "Multa{" + "id=" + id + ", tipo=" + tipo + ", sancion=" + sancion + '}';
     }
 }
