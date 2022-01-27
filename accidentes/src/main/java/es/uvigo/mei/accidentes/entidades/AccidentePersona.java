@@ -14,6 +14,9 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +31,7 @@ public class AccidentePersona implements Serializable {
 
     @Id
     @ManyToOne
+    @JsonIgnoreProperties("multas")
     private Accidente accidente;
     
     @Id

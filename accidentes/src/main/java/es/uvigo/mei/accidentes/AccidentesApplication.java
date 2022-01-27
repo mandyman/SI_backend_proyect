@@ -64,18 +64,18 @@ public class AccidentesApplication implements CommandLineRunner {
         //ac1.anadirMulta(mu1);
         //ac1.anadirMulta(mu2);
 
-        /*AccidentePersonaVehiculo apv1 = new AccidentePersonaVehiculo(ac1, p1, v1);
+        /*AccidentePersonaVehiculo apv1 = new AccidentePersonaVehiculo(ac1, p1, v1);*/
 
         AccidentePersona ap1 = new AccidentePersona("gravedad2", ac1, p1);
-        AccidenteVehiculo av1 = new AccidenteVehiculo("estado de vehiculo2", ac1, v1);*/
+        /*AccidenteVehiculo av1 = new AccidenteVehiculo("estado de vehiculo2", ac1, v1);*/
 
         accidenteDAO.save(ac1);
         multaDAO.save(mu1);
         multaDAO.save(mu2);
         personaDAO.save(p1);
         vehiculoDAO.save(v1);
-        /*accidentePersonaVehiculoDAO.save(apv1);
+        /*accidentePersonaVehiculoDAO.save(apv1);*/
         accidentePersonaDAO.save(ap1);
-        accidenteVehiculoDAO.save(av1);*/
+        /*accidenteVehiculoDAO.save(av1);*/
     }
 }
