@@ -7,9 +7,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import es.uvigo.mei.accidentes.entidades.AccidenteVehiculo;
+import es.uvigo.mei.accidentes.entidades.AccidenteVehiculoId;
 
 @Repository
-public interface AccidenteVehiculoDAO extends JpaRepository<AccidenteVehiculo, Long>{
+public interface AccidenteVehiculoDAO extends JpaRepository<AccidenteVehiculo, AccidenteVehiculoId>{
 	List<AccidenteVehiculo> findByAccidente(long accidenteId);
 	List<AccidenteVehiculo> findByVehiculo(long personaId);
 	
