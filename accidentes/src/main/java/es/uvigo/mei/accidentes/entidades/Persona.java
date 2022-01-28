@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.validator.constraints.Length;
+
 
 @Entity
 public class Persona implements Serializable {
@@ -18,6 +20,8 @@ public class Persona implements Serializable {
     
     private String nombre;
     private String apellidos;
+    
+    @Length(min = 9, max = 9)
     private String DNI;
     
     @Embedded

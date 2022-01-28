@@ -53,29 +53,43 @@ public class AccidentesApplication implements CommandLineRunner {
 
     @Override
 	public void run(String... args) throws Exception {
-        Localizacion loc = new Localizacion("domicilio2","localidad2","codigopostal2","provincia2");
-        Accidente ac1 = new Accidente(loc,"description2");                          
-        Multa mu1 = new Multa("tipo2", "sancion2", ac1);
-        Multa mu2 = new Multa("tipo3", "sancion3", ac1);
+        Localizacion loc = new Localizacion("domicilio","localidad","codigopostal","provincia");
+        Accidente ac1 = new Accidente(loc,"description1 description1 description1");                          
+        Multa mu1 = new Multa("tipo1", "sancion1", ac1);
+        Multa mu2 = new Multa("tipo2", "sancion2", ac1);
 
-        Persona p1 = new Persona("name2","apellidos2","59396847B", loc);
-        Vehiculo v1 = new Vehiculo("moto2", "asdasd2", p1);
+        Accidente ac2 = new Accidente(loc,"description2 description2 description2");                          
+        Multa mu3 = new Multa("tipo3", "sancion3", ac2);
+        Multa mu4 = new Multa("tipo4", "sancion4", ac2);
+
+        Persona p1 = new Persona("name1","apellidos1 apellidos1","99999999B", loc);
+
+        Persona p2 = new Persona("name2","apellidos2 apellidos2","99999990B", loc);
+
+        Vehiculo v1 = new Vehiculo("moto1", "asdasd1", p1);
+        Vehiculo v2 = new Vehiculo("moto2", "asdasd2", p2);
 
         //ac1.anadirMulta(mu1);
         //ac1.anadirMulta(mu2);
 
-        /*AccidentePersonaVehiculo apv1 = new AccidentePersonaVehiculo(ac1, p1, v1);*/
+        /*AccidentePersonaVehiculo apv1 = new AccidentePersonaVehiculo(ac1, p1, v1);
 
         AccidentePersona ap1 = new AccidentePersona("gravedad2", ac1, p1);
-        /*AccidenteVehiculo av1 = new AccidenteVehiculo("estado de vehiculo2", ac1, v1);*/
+        AccidenteVehiculo av1 = new AccidenteVehiculo("estado de vehiculo2", ac1, v1);*/
 
         accidenteDAO.save(ac1);
         multaDAO.save(mu1);
         multaDAO.save(mu2);
+        accidenteDAO.save(ac2);
+        multaDAO.save(mu3);
+        multaDAO.save(mu4);
         personaDAO.save(p1);
         vehiculoDAO.save(v1);
-        /*accidentePersonaVehiculoDAO.save(apv1);*/
+        personaDAO.save(p2);
+        vehiculoDAO.save(v2);
+        
+        /*accidentePersonaVehiculoDAO.save(apv1);
         accidentePersonaDAO.save(ap1);
-        /*accidenteVehiculoDAO.save(av1);*/
+        accidenteVehiculoDAO.save(av1);*/
     }
 }
